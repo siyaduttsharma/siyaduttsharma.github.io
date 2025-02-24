@@ -1,0 +1,95 @@
+---
+layout: default
+---
+<article class="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50">
+  <!-- Hero Image Section -->
+  <div class="h-[70vh] relative">
+    <img src="{{ page.featured_image }}" alt="{{ page.title }}" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-amber-50 mb-2">{{ page.category | capitalize }} • {{ page.date | date: "%B %d, %Y" }}</p>
+        <h1 class="text-5xl font-serif mb-4">{{ page.title }}</h1>
+        {% if page.location %}
+        <p class="flex items-center gap-2 text-amber-50">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          {{ page.location }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <!-- Reading Time and Share -->
+    <div class="flex justify-between items-center mb-8 text-purple-700">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read
+        </span>
+      </div>
+      <div class="flex gap-4">
+        <button onclick="sharePost()" class="hover:text-purple-900 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="prose prose-lg prose-purple max-w-none">
+      {{ content }}
+    </div>
+
+    <!-- Image Gallery -->
+    {% if page.gallery %}
+    <div class="mt-12">
+      <h2 class="text-2xl font-serif text-purple-800 mb-6">Photo Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery">
+        {% for image in page.gallery %}
+        <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+             onclick="openLightbox('{{ image.url }}', '{{ image.caption }}')">
+          <img src="{{ image.url }}" alt="{{ image.caption }}" class="w-full h-full object-cover">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Related Posts -->
+    {% if site.related_posts.size > 0 %}
+    <div class="mt-16">
+      <h2 class="text-2xl font-serif text-purple-800 mb-6">Related Stories</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {% for post in site.related_posts limit:2 %}
+        <a href="{{ post.url }}" class="bg-amber-50 rounded-lg shadow-lg p-6 transform transition-transform hover:scale-105">
+          <h3 class="text-xl font-serif text-purple-800 mb-2">{{ post.title }}</h3>
+          <p class="text-purple-600">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</article>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50" onclick="closeLightbox()">
+  <button class="absolute top-4 right-4 text-white" onclick="closeLightbox()">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  <div class="flex items-center justify-center h-full">
+    <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[90vw]">
+  </div>
+  <p id="lightbox-caption" class="absolute bottom-4 left-0 right-0 text-center text-white"></p>
+</div>

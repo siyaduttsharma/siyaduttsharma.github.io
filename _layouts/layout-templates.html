@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seeya siya</title>
+    <link href="https://fonts.cdnjs.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lavender-light: #E6E6FA;
+            --lavender-mid: #9890C7;
+            --lavender-dark: #6B5B95;
+            --cream: #FAF9F6;
+            --grey-text: #4A4A4A;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--grey-text);
+            line-height: 1.8;
+        }
+
+        .header {
+            background-color: var(--lavender-light);
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .site-title {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--lavender-dark);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+
+        .nav a {
+            color: var(--lavender-dark);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .nav a:hover {
+            background-color: var(--lavender-mid);
+            color: var(--cream);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .post {
+            background-color: #fff;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(107, 91, 149, 0.08);
+        }
+
+        .post h2 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--lavender-dark);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .post p {
+            line-height: 1.8;
+            color: var(--grey-text);
+            font-weight: 300;
+        }
+
+        .date {
+            color: var(--lavender-mid);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">seeya siya</h1>
+        <nav class="nav">
+            <a href="#travelogues">travelogues</a>
+            <a href="#musings">pretentious musings</a>
+            <a href="#about">about me</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <article class="post">
+            <div class="date">22 february 2025</div>
+            <h2>conversations with myself in haridwar</h2>
+            <img src="/api/placeholder/800/400" alt="placeholder image">
+            <p>sometimes the most profound moments come when you're sitting by the ghats, watching the evening aarti, and realizing that your grandmother's stories of this place are now becoming your own...</p>
+        </article>
+
+        <article class="post">
+            <div class="date">20 february 2025</div>
+            <h2>on finding your way back</h2>
+            <p>there's something about returning to a place you've only heard stories about. every lane feels both foreign and familiar, like a dream you can't quite remember but know you've had before...</p>
+        </article>
+    </main>
+</body>
+</html>

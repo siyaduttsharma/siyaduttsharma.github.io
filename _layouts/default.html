@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}Seeyasiya</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50">
+    {% include header.html %}
+    {{ content }}
+</body>
+</html>

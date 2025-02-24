@@ -1,0 +1,48 @@
+# _config.yml
+title: seeya siya
+description: "Wandering through cities and thoughts, collecting stories and excessive amounts of coffee"
+baseurl: ""
+#url: "https://seeyasiya.com" # Change this to your domain
+author: siya
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
+paginate: 6
+paginate_path: "/page/:num/"
+
+# Plugin settings
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Collections
+collections:
+  travelogues:
+    output: true
+    permalink: /travelogues/:title/
+  musings:
+    output: true
+    permalink: /musings/:title/
+  about:
+    output: true
+    permalink: /musings/:about/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "siya"
+      
+# Custom variables
+#cloudinary_cloud_name: "your-cloud-name" # Add your Cloudinary cloud name
+#google_analytics: "G-XXXXXXXXXX" # Optional
+
+# Social media
+twitter_username: yourtwitterhandle
+instagram_username: yourinstagram

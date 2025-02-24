@@ -1,0 +1,16 @@
+
+/* _sass/_base.scss */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream);
+    color: var(--grey-text);
+    line-height: 1.8;
+}
+
+/* Add to _sass/_base.scss */
+.test-style {
+    background-color: red;
+    padding: 20px;
+}
